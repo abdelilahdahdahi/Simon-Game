@@ -34,7 +34,7 @@ $(".btn").click(function() {
 
 function checkAnswer(currentLevel) {
 
-    // checking whether the clicks match
+    // checking whether the game pattern and user clicks match
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
       // and whether the arrays have both the same length
       if (userClickedPattern.length === gamePattern.length){
@@ -67,11 +67,10 @@ function nextSequence() {
   // generating a random number 0-3
   var randomNumber = Math.floor(Math.random() * 4);
 
-  // getting a random colour based on the chosen random 
-  // number that will be the an inside the array of colours 
+  // getting a random colour inside the colours array using the random number as index
   var randomChosenColour = buttonColours[randomNumber];
 
-  // we add the random chosen colour to the pattern game array
+  // we add the random chosen colour to the pattern-game array
   gamePattern.push(randomChosenColour);
 
   // animating the colour's button
@@ -80,6 +79,7 @@ function nextSequence() {
   // playing its own sound
   playSound(randomChosenColour);
 }
+
 //  pressed animation-function
 function animatePress(currentColor) {
   $("#" + currentColor).addClass("pressed");
